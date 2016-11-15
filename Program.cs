@@ -4,30 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace datesAndTimes
+namespace simpleClasses
 {
     class Program
     {
         static void Main(string[] args)
         {
-            dates();
-        }
-        private static void dates()
-        {
-            // code for messing with dates and times.
-            DateTime myValue = DateTime.Now;
-            string dateAndTime = myValue.ToString();       // displays the date and time.
-            string justDate = myValue.ToShortDateString(); // displays just the date only. 
-            string justTime = myValue.ToShortTimeString(); // displays just the time only.
-            string dateAndTimeLonger = myValue.ToLongDateString();
-            string timeLonger = myValue.ToLongTimeString();
-            int justMonth = myValue.Month; // displays just the month.
-            int justHour = myValue.Hour; // displays just the hour.
-            /* DateTime myBirthday = new DateTime(1988, 8, 18);
-            Console.WriteLine(myBirthday.ToLongDateString()); */
-            Console.WriteLine();
+            Car myCar = new Car();
+            myCar.Make = "Toyota";
+            myCar.Model = "Yaris";
+            myCar.Year = 2007;
+            myCar.Color = "Silver";
+            decimal value = determineMarketValue(myCar);
+            // Console.WriteLine("{0} {1} {2} {3}", myCar.Make, myCar.Model, myCar.Year, myCar.Color);
+            Console.WriteLine("{0:C}",value);
             Console.ReadLine();
 
         }
+
+        private static decimal determineMarketValue(Car car)
+        {
+            decimal carValue = 100.0M;
+            return carValue;
+        }
+    }
+
+    class Car
+    {
+        public string Make { get; set; }
+        public string Model { get; set; }
+        public int Year { get; set; }
+        public string Color { get; set; }
     }
 }
